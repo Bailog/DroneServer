@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine.Networking;
 
+//классы для обмена сообщениями м/у клиентом и сервером
 public class MyNetworkMessage : MessageBase
 {
     public string message;

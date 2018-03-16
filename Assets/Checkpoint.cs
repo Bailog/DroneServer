@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Checkpoint : MonoBehaviour
 {
+    // при столконовении объекта DroneExample c объектом, содержащим этот скрипт, удаляет его
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.name == "DroneExample")

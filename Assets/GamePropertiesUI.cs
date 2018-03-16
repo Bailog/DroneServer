@@ -16,18 +16,21 @@ public class GamePropertiesUI : MonoBehaviour {
 
     public GameObject DroneGroup;
 
+    // привязывает функции нажатия на кнопки
     void Start ()
     {
         OK.onClick.AddListener(OKClick);
         Cancel.onClick.AddListener(CancelClick);
     }
 	
+    //отключает меню и включает элементы квадрокоптера (TrackGroup)
     void OKClick()
     {
         GameProperties.enabled = false;
         DroneGroup.SetActive(true);
     }
 
+    //возвращение в главное меню
     void CancelClick()
     {
         GameProperties.enabled = false;

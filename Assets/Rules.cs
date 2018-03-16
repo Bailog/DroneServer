@@ -13,14 +13,16 @@ public class Rules : MonoBehaviour
 
     public GameObject DroneGroup;
 
-    public static int goal;
-    public static int score;
+    public static int goal; // переменная для подсчета общего числа чекпоинтов
+    public static int score; // переменная для подсчета кол-ва пройденных чекпоинтов
+    //переменная для проверки на условие выполнения трассы
     bool cycle;
 
-    //считаем кол-во объектов с тэгом чекпоинт и проверяем, пролетел ли квадрокоптер через все из них
+    //считаем кол-во объектов с тэгом чекпоинт
     void Start()
     {
         VictoryCanvas.enabled = false;
+        
         cycle = true;
         goal = 1;
         score = 0;
@@ -29,6 +31,7 @@ public class Rules : MonoBehaviour
         ButtonWin.onClick.AddListener(WinClick);
     }
 
+    //обновляем количество пройденных чекпоинтов
     void Update()
     {
         ScoreText.text = "Score: " + score + "/" + goal;
@@ -38,13 +41,8 @@ public class Rules : MonoBehaviour
         }
     }
 
-    void WinClick()
-    {
-        VictoryCanvas.enabled = false;
-        DroneGroup.SetActive(false);
-        MainMenuCanvas.enabled = true;
-    }
-
+    //проверяем, пролетел ли квадрокоптер через все чекпоинты, 
+    //если да, отображаем окно с поздравлением
     public void CheckWinCondition()
     {
         if (score == goal)
@@ -52,5 +50,13 @@ public class Rules : MonoBehaviour
             cycle = false;
             VictoryCanvas.enabled = true;            
         }
+    }
+
+    //при нажатии на кнопку возращаемся в главное меню
+    void WinClick()
+    {
+        VictoryCanvas.enabled = false;
+        DroneGroup.SetActive(false);
+        MainMenuCanvas.enabled = true;
     }
 }

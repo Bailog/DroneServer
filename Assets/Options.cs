@@ -11,19 +11,22 @@ public class Options : MonoBehaviour {
 
     public Canvas MainMenu;
     public Canvas OptionsMenu;
-	
-	void Start ()
+
+    //привязка функций нажатия на кнопки 
+    void Start ()
     {
         OK.onClick.AddListener(OKClick);
         Cancel.onClick.AddListener(CancelClick);
     }
 	
+    //принять все изменения в настройках и вернуться в меню
 	void OKClick()
     {
         OptionsMenu.enabled = false;
         MainMenu.enabled = true;
     }
 
+    //отменить все изменения в настройках и вернуться в меню
     void CancelClick()
     {
         OptionsMenu.enabled = false;

@@ -10,14 +10,16 @@ public class Server : MonoBehaviour
     public GameObject Cube;
     Vector3 originalPos;
 
+    //настройки сети
     int port = 8999;
     int maxConnections = 2;
     bool hasClient = false;
 
+    //переменные для присвоения полученных инпутов клиента
     public static float f, r, u, s;
     public static bool reset;
 
-    // id идентификации сообщений и регистрации handler'a
+    // id сообщений и регистрации handler'a
     short messageID = 1000;
     
     void Start()
@@ -77,6 +79,7 @@ public class Server : MonoBehaviour
     }
 
     //вызывается при подключении клиента
+    //создает новый экземпляр и передает его клиенту
     void OnClientConnected(NetworkMessage netMessage)
     {
         MyNetworkMessage messageContainer = new MyNetworkMessage();
@@ -88,20 +91,20 @@ public class Server : MonoBehaviour
     }
 
     //вызывается при отключении клиента
+    //выводит в консоль сообщение
     void OnClientDisconnected(NetworkMessage netMessage)
     {
         Debug.Log("Client disconnected");
         hasClient = false;
     }
 
+    //получение экземпляра сообщения от клиента
     void OnMessageReceived(NetworkMessage netMessage)
     {
-        // You can send any object that inherence from MessageBase
-        // The client and server can be on different projects, as long as the MyNetworkMessage or the class you are using have the same implementation on both projects
-        // The first thing we do is deserialize the message to our custom type
         var objectMessage = netMessage.ReadMessage<MyNetworkMessage>();
         Debug.Log("Message received: " + objectMessage.message);
-
+        //баг: после вовращения объекта в изначальную точку, 
+        //швыряется в произвольном направлении из нее
         if (objectMessage.message == "Reset")
         {
             //Cube.transform.position = originalPos;
@@ -110,6 +113,7 @@ public class Server : MonoBehaviour
         }
     }
 
+    // получение инпутов клиента
     private void OnInputRecieved(NetworkMessage netMessage)
     {
         netMessage.reader.SeekZero();
@@ -122,6 +126,7 @@ public class Server : MonoBehaviour
         reset = inputMessage.reset;
     }
 
+    // отображает окошко с предупреждением, если нет подключенного клиента
     private void FixedUpdate()
     {
         if (!hasClient)

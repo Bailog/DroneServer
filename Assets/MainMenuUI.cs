@@ -16,6 +16,7 @@ public class MainMenuUI : MonoBehaviour
 
     public GameObject DroneGroup;
     
+    //привязывает функции нажатия на кнопки
 	void Start ()
     {
         DroneGroup.SetActive(false);
@@ -28,18 +29,21 @@ public class MainMenuUI : MonoBehaviour
         GameProperties.enabled = false;
     }
 
+    //выключение главного меню и отображение предварительной настройки симуляции
     public void NewGameClick()
     {
         Menu.enabled = false;
         GameProperties.enabled = true;
     }
 
+    //выключение главного меню и включение настроек
     public void OptionsClick()
     {
         Menu.enabled = false;
         Options.enabled = true;
     }
 
+    //выход из приложения
     public void ExitClick()
     {
         Application.Quit();
