@@ -54,7 +54,8 @@ public class Server : MonoBehaviour
                 Debug.Log("No server created, could not listen to the port: " + port);
         }
     }
-
+    
+    //выключение сервера при выходе из приложения
     void OnApplicationQuit()
     {
         NetworkServer.Shutdown();
