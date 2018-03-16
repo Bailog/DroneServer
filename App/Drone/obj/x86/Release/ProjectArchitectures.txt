@@ -1,0 +1,2 @@
+C:\Users\Ученик\Downloads\Lesson40\test#2\Drone\App\Drone\Drone.csproj;x86
+C:\Users\Ученик\Downloads\Lesson40\test#2\Drone\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86

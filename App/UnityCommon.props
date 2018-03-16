@@ -1,0 +1,9 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <UnityWSASolutionName>Drone</UnityWSASolutionName>
+        <UnityWSASolutionDir>C:\Users\Ученик\Downloads\Lesson40\test#2\Drone\App\</UnityWSASolutionDir>
+        <UnityProjectDir>C:\Users\Ученик\Downloads\Lesson40\test#2\Drone\</UnityProjectDir>
+        <UnityWSAPlayerDir>C:\Program Files\Unity\Editor\Data\PlaybackEngines\MetroSupport\</UnityWSAPlayerDir>
+        <UnityWSAToolsDir>$(UnityWSASolutionDir)Unity\Tools\</UnityWSAToolsDir>
+    </PropertyGroup>
+</Project>
