@@ -33,7 +33,8 @@ public class Controller : MonoBehaviour {
         Pitch = Input.GetAxisRaw(PitchCommand) * (InvertPitch ? -1 : 1);
         Roll = Input.GetAxisRaw(RollCommand) * (InvertRoll ? -1 : 1);
         */
-
+	
+	//берем значения переменных из класса Server, который получает их от клиента	
         Throttle = Server.u;
         Yaw = Server.s;
         Pitch = Server.r;
